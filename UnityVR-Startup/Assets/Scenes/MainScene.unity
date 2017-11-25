@@ -555,6 +555,11 @@ Prefab:
       propertyPath: spawnCollider
       value: 
       objectReference: {fileID: 2145219425}
+    - target: {fileID: 114955560038706432, guid: c3ebde65bbd3c5c43a27cf4be9502c0b,
+        type: 2}
+      propertyPath: gameDuration
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3ebde65bbd3c5c43a27cf4be9502c0b, type: 2}
   m_IsPrefabParent: 0
