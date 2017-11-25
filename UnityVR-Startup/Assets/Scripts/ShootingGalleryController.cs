@@ -6,5 +6,5 @@ using VRStandardAssets.Utils;
 using UnityEngine.UI;
 public class ShootingGalleryController : MonoBehaviour
 {
-
+  
 }
