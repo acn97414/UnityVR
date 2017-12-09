@@ -38,7 +38,7 @@ public class ShootingGunController : MonoBehaviour
 
         ShootingTarget shootingTarget = eyeRaycaster.CurrentInteractible ? eyeRaycaster.CurrentInteractible.GetComponent<ShootingTarget>() : null;
         Transform target = shootingTarget ? shootingTarget.transform : null;
-            StartCoroutine(Fire());
+            StartCoroutine(Fire(target));
     }
 
     private IEnumerator Fire(Transform target)
