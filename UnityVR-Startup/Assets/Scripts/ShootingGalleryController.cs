@@ -64,7 +64,9 @@ public class ShootingGalleryController : MonoBehaviour//Class 類別
                 if (Random.value < spawnProbabilty)
                 {
                     spawnTimer = spawnInterval;
-                    Spawn();
+                    //-----------------
+                    Spawn(gameTimer);
+                    //-----------------
                 }
             }
             yield return null;
@@ -76,10 +78,18 @@ public class ShootingGalleryController : MonoBehaviour//Class 類別
         yield return StartCoroutine(uiController.HidePlayerUI());
     }
 
-    private void Spawn()
+    private void Spawn(float timeRemaining)
     {
         GameObject target = targerObjectPool.GetGameObjectFromPool();
         target.transform.position = SpawnPosition();
+        ShootingTarget shootingTarget = target.GetComponent<ShootingTarget>();
+        shootingTarget.Restart(timeRemaining);
+        shootingTarget.OnRemove += HandleTargetRemoved;
+    }
+    private void HandleTargetRemoved(ShootingTarget target)
+    {
+        target.OnRemove -= HandleTargetRemoved;
+        targerObjectPool.ReturnGameObjectToPool(target.gameObject);
     }
 
     private Vector3 SpawnPosition()

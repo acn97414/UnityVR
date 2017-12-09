@@ -342,6 +342,11 @@ Prefab:
       propertyPath: gunContainer
       value: 
       objectReference: {fileID: 194077206}
+    - target: {fileID: 114011971931558918, guid: 31e7b5e5c22f22d4db72ced1750fc25b,
+        type: 2}
+      propertyPath: shootingGalleryController
+      value: 
+      objectReference: {fileID: 1590310823}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31e7b5e5c22f22d4db72ced1750fc25b, type: 2}
   m_IsPrefabParent: 0
@@ -563,6 +568,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3ebde65bbd3c5c43a27cf4be9502c0b, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1590310823 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114955560038706432, guid: c3ebde65bbd3c5c43a27cf4be9502c0b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1472253226}
+  m_Script: {fileID: 11500000, guid: 090a125650566664ca9744f1258e0423, type: 3}
 --- !u!114 &1614719117 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114134904687318652, guid: 31e7b5e5c22f22d4db72ced1750fc25b,

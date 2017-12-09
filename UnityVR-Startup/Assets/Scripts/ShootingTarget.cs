@@ -65,7 +65,7 @@ public class ShootingTarget : MonoBehaviour
             OnRemove(this);
     }
 
-    public void Restart()
+    public void Restart(float gameTimeRemaining)
     {
         mRenderer.enabled = true;
         mCollider.enabled = true;
@@ -74,6 +74,7 @@ public class ShootingTarget : MonoBehaviour
         audioSource.Play();
         transform.LookAt(cameraTransfrom.position);
         StartCoroutine(MissTarget());
+        StartCoroutine(GameOver(gameTimeRemaining));
     }
 
     private IEnumerator MissTarget()
@@ -86,6 +87,18 @@ public class ShootingTarget : MonoBehaviour
         mCollider.enabled = missedClip;
         audioSource.Play();
         yield return new WaitForSeconds(missedClip.length);
+        if (OnRemove != null)
+            OnRemove(this);
+    }
+
+    private IEnumerator GameOver(float gameTimeRemaining)
+    {
+        yield return new WaitForSeconds(gameTimeRemaining);
+        if (isEnding)
+            yield break;
+        isEnding = true;
+        mRenderer.enabled = false;
+        mCollider.enabled = false;
         if (OnRemove != null)
             OnRemove(this);
     }
